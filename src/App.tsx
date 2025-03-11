@@ -53,7 +53,7 @@ function Index() {
               { index: current.length + 1, action: "plus" },
             ]);
             break;
-          case "C":
+          case "CE":
             if (result !== "") {
               setResult(result.slice(0, -1));
             } else if (current.length > 0) {
@@ -78,7 +78,6 @@ function Index() {
               const updatedCurrent = [...current, result];
               setResult("");
               const fullArray = MD.concat(PM);
-              console.log("actions:", fullArray);
               let offset = 0;
               fullArray.forEach((actionItem) => {
                 actionItem.index -= offset;
@@ -123,9 +122,11 @@ function Index() {
                   default:
                     console.error("fuck this operator is fucked:", operator);
                 }
-                setCurrent([finalResult]);
+                setCurrent([]);
+                setResult(finalResult.toString());
               } else {
-                setCurrent(updatedCurrent);
+                setCurrent([]);
+                setResult(updatedCurrent.join(""));
               }
               setMD([]);
               setPM([]);
@@ -135,7 +136,7 @@ function Index() {
     }
   }
   const calcButtons = [
-    "C",
+    "CE",
     "%",
     "/",
     7,
@@ -159,7 +160,7 @@ function Index() {
       <div>
         <button
           onClick={() => {
-            console.log(MD.concat(PM));
+            console.log(current);
           }}
         >
           Test
@@ -170,7 +171,6 @@ function Index() {
           )}
           {result && <h1>{result}</h1>}{" "}
         </div>
-
         <div className="grid grid-cols-4 grid-rows-4 text-5xl *:border-cyan-900 *:cursor-pointer *:hover:bg-blue-400 *:border-[1px] *:px-4 *:pb-2 *:pt-1 *:text-center">
           {calcButtons.map((buttons, index) => (
             <div
