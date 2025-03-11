@@ -158,14 +158,7 @@ function Index() {
   return (
     <div className="bg-linear-to-r from-cyan-500 to-blue-500 justify-center items-center flex w-screen h-screen">
       <div>
-        <button
-          onClick={() => {
-            console.log(current);
-          }}
-        >
-          Test
-        </button>
-        <div className="flex flex-row gap-2">
+        <div className="flex flex-row gap-2 text-[1.2em] bg-white py-2 h-12 items-center">
           {current.map((num, index) =>
             num !== "" ? <h1 key={index}>{num}</h1> : null
           )}
