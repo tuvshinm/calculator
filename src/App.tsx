@@ -5,7 +5,6 @@ function Index() {
   const [result, setResult] = useState("");
   const [MD, setMD] = useState<{ index: number; action: string }[]>([]);
   const [PM, setPM] = useState<{ index: number; action: string }[]>([]);
-  const [prev, setPrev] = useState("");
   function calculate(num: string | number) {
     switch (typeof num) {
       case "number":
